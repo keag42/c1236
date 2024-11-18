@@ -14,13 +14,11 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
             if [ "$task" = "a" ] || [ "$task" = "A" ] ; then #enterd a-A 
                 ms=true
                 echo "task 1 selected"
-                cd task1.sh # go to task 1
-                ./task1.sh
+                ./task1.sh # go to task 1
             elif [ "$task" = "b" ] || [ "$task" = "B" ] ; then #entered b-B
                 ms=true
-                echo "task 2 selected"
-                cd task2.sh # go to task 1
-                ./task2.sh
+                echo "task 2 selected" 
+                ./task2.sh # go to task 2
             elif [ "$task" = "c" ] || [ "$task" = "C" ] ; then #entered c-C
                 echo "task 3 selected"
                 ms=true
