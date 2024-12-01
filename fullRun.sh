@@ -112,46 +112,61 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
             elif [ "$task" = "c" ] || [ "$task" = "C" ] ; then #entered c-C
                 echo "task 3 selected"
                 
-                read -p 'enter a: ' a
-                read -p 'enter b: ' b
-                read -p 'eter c:  ' c
-                read -p 'enter min: ' min
-                read -p 'enter max: ' max
-
-                total=0
-                count=1
+                total=0 # the total value of the expression
                 startTotal=0
                 endTotal=0
 
+                echo "For the term: a(n^3) + b(n) + c"
+                echo
+                read -p 'Enter the value of "a": ' a
+                read -p 'Enter the value of "b": ' b
+                read -p 'Enter the value of "c": ' c
+                echo
+                read -p 'Enter the minimum range of "n": ' min
+                read -p 'Enter the maximum range of "n": ' max
+                echo
+                read -p 'Enter a number to check if it is a factor of the product: ' factor
+                echo; echo
+                echo "The sequence of terms in the range $min to $max are: "
+
                 for (( i = $min; i <= $max; i++ )); do
+                    
                     total=$(( a*(i**3) + (b*i) + c ))
                     printf "$total, "
+                
                     if (( i == $min )); then
                         startTotal=$total
                     elif (( i == $max )); then
                         endTotal=$total
                     fi
                 done
-                
+
+                echo; echo
                 prod=$(( startTotal * endTotal ))
-                echo "product: " $prod
+
+                echo "The product of the first and last term is: " $prod
+                echo
+
+                if (( $prod % factor == 0 )); then
+                    echo "$prod: is a factor of $factor"
+                else
+                    echo "$prod: is not a factor of $factor"
+                fi
 
                 while [ "$ms" != "m" ] && [ "$ms" != "e" ]; do
+                    read -p "please enter: m to go back to menu or, e to leave " ms
                     echo
-                    read -p "please enter: m to go back to menu, or e to leave " ms
-                    echo
+
                     if [ "$ms" == "m" ]; then
                         task="stay"
                     elif [ "$ms" == "e" ]; then
                         task="bye"
                         echo goodbye
                     fi
-                done
 
+                done
             else
                 echo "incorrect, Please enter a,A,b,B,c or C"
-
-
             fi
         done
 
