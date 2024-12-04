@@ -59,18 +59,10 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
                 echo "The number of odd triangular numbers are: $odd \n"
                 echo "The product of odd triangular numbers are: $prodOdd" #print Odd and sum of odd numbers
                 echo "The product of even triangular numbers are: $prodEven \n" #print Even and sum of even numbers
-                
+
                 while [ "$ms" != "m" ] && [ "$ms" != "e" ]; do
                     read -p "please enter: m to go back to menu or, e to leave " ms
                     echo
-
-                    if [ "$ms" == "m" ]; then
-                        task="stay"
-                    elif [ "$ms" == "e" ]; then
-                        task="bye"
-                        echo goodbye
-                    fi
-
                 done
                     
             elif [ "$task" = "b" ] || [ "$task" = "B" ] ; then #entered b-B
@@ -96,18 +88,11 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
                         echo "$prod: not a factor of $factor"
                     fi
                 done
-
+                
                 while [ "$ms" != "m" ] && [ "$ms" != "e" ]; do
-                    echo    
                     read -p "please enter: m to go back to menu or, e to leave " ms
                     echo
-                    if [ "$ms" == "m" ]; then
-                        task="stay"
-                    elif [ "$ms" == "e" ]; then
-                        task="bye"
-                        echo goodbye
-                    fi
-                done
+                done    
 
             elif [ "$task" = "c" ] || [ "$task" = "C" ] ; then #entered c-C
                 echo "task 3 selected"
@@ -156,17 +141,16 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
                 while [ "$ms" != "m" ] && [ "$ms" != "e" ]; do
                     read -p "please enter: m to go back to menu or, e to leave " ms
                     echo
-
-                    if [ "$ms" == "m" ]; then
-                        task="stay"
-                    elif [ "$ms" == "e" ]; then
-                        task="bye"
-                        echo goodbye
-                    fi
-
-                done
+                 done
             else
                 echo "incorrect, Please enter a,A,b,B,c or C"
+            fi
+
+            if [ "$ms" == "e" ]; then
+                task="bye"
+                echo goodbye
+            elif [ "$ms" == "m" ]; then
+                task=""
             fi
         done
 
