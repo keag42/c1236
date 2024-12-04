@@ -131,7 +131,7 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
 
                 echo "The product of the first and last term is: " $product
                 echo
-c
+
                 if (( product % factor == 0 )); then
                     echo "$product: is a factor of $factor"
                 else
