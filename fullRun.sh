@@ -73,19 +73,19 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
                 read -p 'Enter a number to check if it is a factor of the products: ' factor
                 echo
 
-                prod=0
+                product=0
 
                 echo "The products are: \n" 
 
                 for (( i = 1; i <= $numProd; i++ )) ; do
                     
-                    prod=$((startNum*(startNum + 1)))
+                    product=$((startNum*(startNum + 1)))
                     ((startNum++))
                     
-                    if (( $prod % factor == 0 )); then
-                        echo "$prod: is a factor of $factor"
+                    if (( factor % product == 0 )); then
+                        echo "$product: is a factor of $factor"
                     else
-                        echo "$prod: not a factor of $factor"
+                        echo "$product: not a factor of $factor"
                     fi
                 done
                 
@@ -127,15 +127,15 @@ while [ $attempts -lt 3 ] && [ "$pwd" != "App1" ] ; do #if you get it wrong it r
                 done
 
                 echo; echo
-                prod=$(( startTotal * endTotal ))
+                product=$(( startTotal * endTotal ))
 
-                echo "The product of the first and last term is: " $prod
+                echo "The product of the first and last term is: " $product
                 echo
-
-                if (( $prod % factor == 0 )); then
-                    echo "$prod: is a factor of $factor"
+c
+                if (( product % factor == 0 )); then
+                    echo "$product: is a factor of $factor"
                 else
-                    echo "$prod: is not a factor of $factor"
+                    echo "$product: is not a factor of $factor"
                 fi
 
                 while [ "$ms" != "m" ] && [ "$ms" != "e" ]; do
